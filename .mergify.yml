@@ -1,0 +1,26 @@
+scopes:
+  source:
+    files:
+      freeze-old:
+        include:
+          - freezearea/**
+      config:
+        include:
+          - .mergify.yml
+queue_rules:
+  - name: default
+    queue_conditions: []
+    merge_conditions: []
+    batch_size: 1
+    batch_max_wait_time: 0 seconds
+    merge_method: merge
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+  - name: VM2 observe freeze-old scope R8M3
+    conditions:
+      - title = VM2_FREEZE_CONTROL_OLD_R8M3
+      - scope = freeze-old
+    actions:
+      comment:
+        message: VM2_SCOPE_OLD_MATCH_R8M3
