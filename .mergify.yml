@@ -1,7 +1,7 @@
 scopes:
   source:
     files:
-      freeze-old:
+      freeze-new:
         include:
           - freezearea/**
       config:
@@ -17,10 +17,10 @@ queue_rules:
 merge_queue:
   max_parallel_checks: 1
 pull_request_rules:
-  - name: VM2 observe freeze-old scope R8M3
+  - name: VM2 observe freeze-new scope R8M3
     conditions:
-      - title = VM2_FREEZE_CONTROL_OLD_R8M3
-      - scope = freeze-old
+      - title = VM2_FREEZE_POST_RENAME_R8M3
+      - scope = freeze-new
     actions:
       comment:
-        message: VM2_SCOPE_OLD_MATCH_R8M3
+        message: VM2_SCOPE_NEW_MATCH_R8M3
